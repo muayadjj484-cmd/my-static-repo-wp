@@ -1,4 +1,4 @@
-/*! elementor - v3.32.0 - 18-09-2025 */
+/*! elementor - v3.32.0 - 29-09-2025 */
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
@@ -5650,38 +5650,19 @@ function ExportComplete() {
   }, []);
   (0, _react.useEffect)(function () {
     if (exportedData.manifest) {
-      var _exportedData$manifes, _exportedData$manifes2, _exportedData$manifes3, _exportedData$manifes4, _exportedData$manifes5, _exportedData$manifes6;
-      var pages = '';
-      if (includes.includes('pages')) {
-        var _analytics$customizat;
-        pages = analytics !== null && analytics !== void 0 && (_analytics$customizat = analytics.customization) !== null && _analytics$customizat !== void 0 && (_analytics$customizat = _analytics$customizat.content) !== null && _analytics$customizat !== void 0 && _analytics$customizat.includes('pages') ? 'partial' : 'all';
-      }
-      var postTypes = '';
-      if (includes.includes('postTypes')) {
-        var _analytics$customizat2;
-        postTypes = analytics !== null && analytics !== void 0 && (_analytics$customizat2 = analytics.customization) !== null && _analytics$customizat2 !== void 0 && (_analytics$customizat2 = _analytics$customizat2.content) !== null && _analytics$customizat2 !== void 0 && _analytics$customizat2.includes('customPostTypes') ? 'partial' : 'all';
-      }
-      var plugins = '';
-      if (includes.includes('plugins')) {
-        var _analytics$customizat3;
-        plugins = analytics !== null && analytics !== void 0 && (_analytics$customizat3 = analytics.customization) !== null && _analytics$customizat3 !== void 0 && (_analytics$customizat3 = _analytics$customizat3.plugins) !== null && _analytics$customizat3 !== void 0 && _analytics$customizat3.length ? 'partial' : 'all';
-      }
+      var _exportedData$manifes, _exportedData$manifes2;
+      var contentCounts = getContentCounts();
       _appsEventTracking.AppsEventTracking.sendExportKitCustomization({
         kit_export_content: includes.includes('content'),
         kit_export_templates: includes.includes('templates'),
         kit_export_settings: includes.includes('settings'),
         kit_export_plugins: includes.includes('plugins'),
-        kit_export_deselected: analytics === null || analytics === void 0 ? void 0 : analytics.customization,
+        kit_export_customization_modals: analytics === null || analytics === void 0 ? void 0 : analytics.customization,
         kit_description: Boolean(kitInfo.description),
-        kit_page_count: exportedData !== null && exportedData !== void 0 && (_exportedData$manifes = exportedData.manifest) !== null && _exportedData$manifes !== void 0 && (_exportedData$manifes = _exportedData$manifes.content) !== null && _exportedData$manifes !== void 0 && _exportedData$manifes.page ? Object.values(exportedData === null || exportedData === void 0 || (_exportedData$manifes2 = exportedData.manifest) === null || _exportedData$manifes2 === void 0 || (_exportedData$manifes2 = _exportedData$manifes2.content) === null || _exportedData$manifes2 === void 0 ? void 0 : _exportedData$manifes2.page).length : 0,
-        kit_post_type_count: exportedData !== null && exportedData !== void 0 && (_exportedData$manifes3 = exportedData.manifest) !== null && _exportedData$manifes3 !== void 0 && _exportedData$manifes3.content ? Object.keys(exportedData === null || exportedData === void 0 || (_exportedData$manifes4 = exportedData.manifest) === null || _exportedData$manifes4 === void 0 ? void 0 : _exportedData$manifes4.content).filter(function (key) {
-          var _elementorAppConfig;
-          return !((_elementorAppConfig = elementorAppConfig) !== null && _elementorAppConfig !== void 0 && (_elementorAppConfig = _elementorAppConfig.builtinWpPostTypes) !== null && _elementorAppConfig !== void 0 && _elementorAppConfig.includes(key));
-        }).length : 0,
-        kit_post_count: exportedData !== null && exportedData !== void 0 && (_exportedData$manifes5 = exportedData.manifest) !== null && _exportedData$manifes5 !== void 0 && (_exportedData$manifes5 = _exportedData$manifes5.content) !== null && _exportedData$manifes5 !== void 0 && _exportedData$manifes5.post ? Object.values(exportedData === null || exportedData === void 0 || (_exportedData$manifes6 = exportedData.manifest) === null || _exportedData$manifes6 === void 0 || (_exportedData$manifes6 = _exportedData$manifes6.content) === null || _exportedData$manifes6 === void 0 ? void 0 : _exportedData$manifes6.post).length : 0,
-        pages: pages,
-        postTypes: postTypes,
-        plugins: plugins
+        kit_page_count: contentCounts.page || 0,
+        kit_post_count: contentCounts.post || 0,
+        kit_post_type_count: (_exportedData$manifes = exportedData.manifest) !== null && _exportedData$manifes !== void 0 && _exportedData$manifes['custom-post-type-title'] ? Object.keys((_exportedData$manifes2 = exportedData.manifest) === null || _exportedData$manifes2 === void 0 ? void 0 : _exportedData$manifes2['custom-post-type-title']).length : 0,
+        kit_source: kitInfo.source
       });
     }
   }, [includes, exportedData === null || exportedData === void 0 ? void 0 : exportedData.manifest, analytics === null || analytics === void 0 ? void 0 : analytics.customization, kitInfo.description]);
@@ -5717,8 +5698,8 @@ function ExportComplete() {
     title: (0, _i18n.__)('Export', 'elementor')
   });
   var getTemplatesSummary = function getTemplatesSummary() {
-    var _exportedData$manifes7, _elementorAppConfig$i;
-    var templates = exportedData === null || exportedData === void 0 || (_exportedData$manifes7 = exportedData.manifest) === null || _exportedData$manifes7 === void 0 ? void 0 : _exportedData$manifes7.templates;
+    var _exportedData$manifes3, _elementorAppConfig$i;
+    var templates = exportedData === null || exportedData === void 0 || (_exportedData$manifes3 = exportedData.manifest) === null || _exportedData$manifes3 === void 0 ? void 0 : _exportedData$manifes3.templates;
     if (!templates) {
       return (0, _i18n.__)('No templates exported', 'elementor');
     }
@@ -5746,55 +5727,79 @@ function ExportComplete() {
     });
     return summaryParts.length > 0 ? summaryParts.join(' | ') : (0, _i18n.__)('No templates exported', 'elementor');
   };
-  var getContentSummary = function getContentSummary() {
-    var _exportedData$manifes8, _exportedData$manifes9, _elementorAppConfig$i2;
-    var content = exportedData === null || exportedData === void 0 || (_exportedData$manifes8 = exportedData.manifest) === null || _exportedData$manifes8 === void 0 ? void 0 : _exportedData$manifes8.content;
-    var wpContent = exportedData === null || exportedData === void 0 || (_exportedData$manifes9 = exportedData.manifest) === null || _exportedData$manifes9 === void 0 ? void 0 : _exportedData$manifes9['wp-content'];
-    if (!content && !wpContent) {
-      return (0, _i18n.__)('No content exported', 'elementor');
-    }
-    var summaryTitles = ((_elementorAppConfig$i2 = elementorAppConfig['import-export-customization']) === null || _elementorAppConfig$i2 === void 0 || (_elementorAppConfig$i2 = _elementorAppConfig$i2.summaryTitles) === null || _elementorAppConfig$i2 === void 0 ? void 0 : _elementorAppConfig$i2.content) || {};
-    var summaryPartsMap = {};
-    var getSummaryParts = function getSummaryParts(_ref3) {
+  var getContentCounts = function getContentCounts() {
+    var _exportedData$manifes4, _exportedData$manifes5;
+    var content = exportedData === null || exportedData === void 0 || (_exportedData$manifes4 = exportedData.manifest) === null || _exportedData$manifes4 === void 0 ? void 0 : _exportedData$manifes4.content;
+    var wpContent = exportedData === null || exportedData === void 0 || (_exportedData$manifes5 = exportedData.manifest) === null || _exportedData$manifes5 === void 0 ? void 0 : _exportedData$manifes5['wp-content'];
+    var counts = {};
+    var countItems = function countItems(_ref3) {
       var _ref4 = (0, _slicedToArray2.default)(_ref3, 2),
         docType = _ref4[0],
         docs = _ref4[1];
+      var count = Object.keys(docs).length;
+      if (count > 0) {
+        counts[docType] = (counts[docType] || 0) + count;
+      }
+    };
+    Object.entries(content || {}).forEach(countItems);
+    Object.entries(wpContent || {}).forEach(countItems);
+    return counts;
+  };
+  var getContentSummary = function getContentSummary() {
+    var _exportedData$manifes6, _exportedData$manifes7, _exportedData$manifes8, _elementorAppConfig$i2;
+    var content = exportedData === null || exportedData === void 0 || (_exportedData$manifes6 = exportedData.manifest) === null || _exportedData$manifes6 === void 0 ? void 0 : _exportedData$manifes6.content;
+    var wpContent = exportedData === null || exportedData === void 0 || (_exportedData$manifes7 = exportedData.manifest) === null || _exportedData$manifes7 === void 0 ? void 0 : _exportedData$manifes7['wp-content'];
+    var taxonomies = exportedData === null || exportedData === void 0 || (_exportedData$manifes8 = exportedData.manifest) === null || _exportedData$manifes8 === void 0 ? void 0 : _exportedData$manifes8.taxonomies;
+    if (!content && !wpContent && !taxonomies) {
+      return (0, _i18n.__)('No content exported', 'elementor');
+    }
+    var summaryTitles = ((_elementorAppConfig$i2 = elementorAppConfig['import-export-customization']) === null || _elementorAppConfig$i2 === void 0 || (_elementorAppConfig$i2 = _elementorAppConfig$i2.summaryTitles) === null || _elementorAppConfig$i2 === void 0 ? void 0 : _elementorAppConfig$i2.content) || {};
+    var counts = getContentCounts();
+    var summaryPartsMap = {};
+    Object.entries(counts).forEach(function (_ref5) {
+      var _ref6 = (0, _slicedToArray2.default)(_ref5, 2),
+        docType = _ref6[0],
+        count = _ref6[1];
       var label = summaryTitles[docType];
       if (!label) {
         return;
-      }
-      var count = Object.keys(docs).length;
-      if (0 === count) {
-        return;
-      }
-      var existingPart = summaryPartsMap[docType];
-      if (existingPart) {
-        count += existingPart.count;
       }
       var title = count > 1 ? label.plural : label.single;
       summaryPartsMap[docType] = {
         count: count,
         title: title
       };
-    };
-    Object.entries(content || {}).forEach(getSummaryParts);
-    Object.entries(wpContent || {}).forEach(getSummaryParts);
-    var summaryParts = Object.values(summaryPartsMap).map(function (_ref5) {
-      var count = _ref5.count,
-        title = _ref5.title;
+    });
+    if (Object.keys(taxonomies || {}).length) {
+      var allTaxonomiesSet = new Set();
+      Object.values(taxonomies).forEach(function (postTypeTaxonomies) {
+        postTypeTaxonomies.forEach(function (taxonomy) {
+          allTaxonomiesSet.add(taxonomy.name);
+        });
+      });
+      if (allTaxonomiesSet.size) {
+        summaryPartsMap.taxonomies = {
+          count: allTaxonomiesSet.size,
+          title: (0, _i18n.__)('Taxonomies', 'elementor')
+        };
+      }
+    }
+    var summaryParts = Object.values(summaryPartsMap).map(function (_ref7) {
+      var count = _ref7.count,
+        title = _ref7.title;
       return "".concat(count, " ").concat(title);
     });
     return summaryParts.length > 0 ? summaryParts.join(' | ') : (0, _i18n.__)('No content exported', 'elementor');
   };
   var getPluginsSummary = function getPluginsSummary() {
-    var _exportedData$manifes0, _exportedData$manifes1;
-    return exportedData !== null && exportedData !== void 0 && (_exportedData$manifes0 = exportedData.manifest) !== null && _exportedData$manifes0 !== void 0 && _exportedData$manifes0.plugins ? exportedData === null || exportedData === void 0 || (_exportedData$manifes1 = exportedData.manifest) === null || _exportedData$manifes1 === void 0 ? void 0 : _exportedData$manifes1.plugins.map(function (plugin) {
+    var _exportedData$manifes9, _exportedData$manifes0;
+    return exportedData !== null && exportedData !== void 0 && (_exportedData$manifes9 = exportedData.manifest) !== null && _exportedData$manifes9 !== void 0 && _exportedData$manifes9.plugins ? exportedData === null || exportedData === void 0 || (_exportedData$manifes0 = exportedData.manifest) === null || _exportedData$manifes0 === void 0 ? void 0 : _exportedData$manifes0.plugins.map(function (plugin) {
       return plugin.name;
     }).join(' | ') : (0, _i18n.__)('No plugins exported', 'elementor');
   };
   var getSettingsSummary = function getSettingsSummary() {
-    var _exportedData$manifes10;
-    var siteSettings = exportedData === null || exportedData === void 0 || (_exportedData$manifes10 = exportedData.manifest) === null || _exportedData$manifes10 === void 0 ? void 0 : _exportedData$manifes10['site-settings'];
+    var _exportedData$manifes1;
+    var siteSettings = exportedData === null || exportedData === void 0 || (_exportedData$manifes1 = exportedData.manifest) === null || _exportedData$manifes1 === void 0 ? void 0 : _exportedData$manifes1['site-settings'];
     if (!siteSettings) {
       return (0, _i18n.__)('No settings exported', 'elementor');
     }
@@ -7262,7 +7267,8 @@ function ImportComplete() {
     return summaryParts.length > 0 ? summaryParts.join(' | ') : (0, _i18n.__)('No content imported', 'elementor');
   }, [runnersState]);
   var getPluginsSummary = (0, _react.useCallback)(function () {
-    return runnersState !== null && runnersState !== void 0 && runnersState.plugins ? runnersState.plugins.join(' | ') : (0, _i18n.__)('No plugins imported', 'elementor');
+    var plugins = Array.isArray(runnersState === null || runnersState === void 0 ? void 0 : runnersState.plugins) ? runnersState === null || runnersState === void 0 ? void 0 : runnersState.plugins : Object.values((runnersState === null || runnersState === void 0 ? void 0 : runnersState.plugins) || {});
+    return runnersState !== null && runnersState !== void 0 && runnersState.plugins ? plugins.join(' | ') : (0, _i18n.__)('No plugins imported', 'elementor');
   }, [runnersState === null || runnersState === void 0 ? void 0 : runnersState.plugins]);
   var getSettingsSummary = (0, _react.useCallback)(function () {
     var _data$customization, _data$uploadedData;
@@ -7325,7 +7331,7 @@ function ImportComplete() {
   }, []);
   (0, _react.useEffect)(function () {
     var _data$kitUploadParams, _uploadedData$manifes;
-    _appsEventTracking.AppsEventTracking.sendExportKitCustomization({
+    _appsEventTracking.AppsEventTracking.sendImportKitCustomization({
       kit_source: (data === null || data === void 0 || (_data$kitUploadParams = data.kitUploadParams) === null || _data$kitUploadParams === void 0 ? void 0 : _data$kitUploadParams.source) || 'file',
       kit_import_content: includes.includes('content'),
       kit_import_templates: includes.includes('templates'),
@@ -8095,6 +8101,7 @@ function CompleteSummary(_ref) {
       sectionValue = _ref3[1];
     return sectionValue ? /*#__PURE__*/_react.default.createElement(_summarySection.default, {
       key: sectionKey,
+      sectionKey: sectionKey,
       title: sectionValue.title,
       subTitle: sectionValue.subTitle
     }) : null;
@@ -8627,7 +8634,6 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports.KitContentCustomizationDialog = KitContentCustomizationDialog;
 var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "react"));
-var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "../node_modules/@babel/runtime/helpers/toConsumableArray.js"));
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "../node_modules/@babel/runtime/helpers/defineProperty.js"));
 var _slicedToArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "../node_modules/@babel/runtime/helpers/slicedToArray.js"));
 var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "../node_modules/prop-types/index.js"));
@@ -8639,11 +8645,26 @@ var _customizationSettingSection = __webpack_require__(/*! ./customization-setti
 var _appsEventTracking = __webpack_require__(/*! elementor-app/event-track/apps-event-tracking */ "../app/assets/js/event-track/apps-event-tracking.js");
 var _useKitCustomizationCustomPostTypes = __webpack_require__(/*! ../hooks/use-kit-customization-custom-post-types */ "../app/modules/import-export-customization/assets/js/shared/hooks/use-kit-customization-custom-post-types.js");
 var _upgradeVersionBanner = __webpack_require__(/*! ./upgrade-version-banner */ "../app/modules/import-export-customization/assets/js/shared/components/upgrade-version-banner.js");
+var _analyticsTransformer = __webpack_require__(/*! ../utils/analytics-transformer */ "../app/modules/import-export-customization/assets/js/shared/utils/analytics-transformer.js");
 function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function _interopRequireWildcard(e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, default: e }; if (null === e || "object" != _typeof(e) && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (var _t in e) "default" !== _t && {}.hasOwnProperty.call(e, _t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t)) && (i.get || i.set) ? o(f, _t, i) : f[_t] = e[_t]); return f; })(e, t); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { (0, _defineProperty2.default)(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+var transformAnalyticsData = function transformAnalyticsData(payload, customPostTypes) {
+  var optionsArray = [{
+    key: 'customPostTypes',
+    options: customPostTypes
+  }];
+  var transformed = {};
+  for (var _i = 0, _Object$entries = Object.entries(payload); _i < _Object$entries.length; _i++) {
+    var _Object$entries$_i = (0, _slicedToArray2.default)(_Object$entries[_i], 2),
+      key = _Object$entries$_i[0],
+      value = _Object$entries$_i[1];
+    transformed[key] = (0, _analyticsTransformer.transformValueForAnalytics)(key, value, optionsArray);
+  }
+  return transformed;
+};
 function KitContentCustomizationDialog(_ref) {
-  var _data$analytics, _data$customization$c2;
+  var _data$customization$c2;
   var open = _ref.open,
     handleClose = _ref.handleClose,
     _handleSaveChanges = _ref.handleSaveChanges,
@@ -8654,7 +8675,6 @@ function KitContentCustomizationDialog(_ref) {
       data: data
     }),
     customPostTypes = _useKitCustomizationC.customPostTypes;
-  var unselectedValues = (0, _react.useRef)(((_data$analytics = data.analytics) === null || _data$analytics === void 0 || (_data$analytics = _data$analytics.customization) === null || _data$analytics === void 0 ? void 0 : _data$analytics.content) || []);
   var _useState = (0, _react.useState)(function () {
       if (data.customization.content) {
         return data.customization.content;
@@ -8706,7 +8726,8 @@ function KitContentCustomizationDialog(_ref) {
     title: (0, _i18n.__)('Edit content', 'elementor'),
     handleClose: handleClose,
     handleSaveChanges: function handleSaveChanges() {
-      return _handleSaveChanges('content', settings, true, unselectedValues.current);
+      var transformedAnalytics = transformAnalyticsData(settings, customPostTypes);
+      _handleSaveChanges('content', settings, true, transformedAnalytics);
     }
   }, /*#__PURE__*/_react.default.createElement(_ui.Stack, {
     gap: 2
@@ -8718,18 +8739,6 @@ function KitContentCustomizationDialog(_ref) {
     settingKey: "customPostTypes",
     title: (0, _i18n.__)('Custom post types', 'elementor'),
     onSettingChange: function onSettingChange(selectedCustomPostTypes) {
-      var filteredUnselectedValues = unselectedValues.current.filter(function (value) {
-        return !customPostTypes.includes(value);
-      });
-      var isAllChecked = selectedCustomPostTypes.length === customPostTypes.length;
-      unselectedValues.current = isAllChecked ? filteredUnselectedValues.filter(function (value) {
-        return value !== 'customPostTypes';
-      }) : [].concat((0, _toConsumableArray2.default)(filteredUnselectedValues), (0, _toConsumableArray2.default)(customPostTypes.filter(function (cpt) {
-        return !selectedCustomPostTypes.includes(cpt);
-      }).map(function (_ref3) {
-        var value = _ref3.value;
-        return value;
-      })), ['customPostTypes']);
       handleSettingsChange('customPostTypes', selectedCustomPostTypes);
     },
     settings: settings.customPostTypes,
@@ -9066,7 +9075,6 @@ Object.defineProperty(exports, "__esModule", ({
 exports.KitPluginsCustomizationDialog = KitPluginsCustomizationDialog;
 var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "react"));
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "../node_modules/@babel/runtime/helpers/defineProperty.js"));
-var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "../node_modules/@babel/runtime/helpers/toConsumableArray.js"));
 var _slicedToArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "../node_modules/@babel/runtime/helpers/slicedToArray.js"));
 var _ui = __webpack_require__(/*! @elementor/ui */ "@elementor/ui");
 var _icons = __webpack_require__(/*! ./icons */ "../app/modules/import-export-customization/assets/js/shared/components/icons/index.js");
@@ -9074,12 +9082,23 @@ var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ ".
 var _useKitPlugins2 = _interopRequireDefault(__webpack_require__(/*! ../hooks/use-kit-plugins */ "../app/modules/import-export-customization/assets/js/shared/hooks/use-kit-plugins.js"));
 var _appsEventTracking = __webpack_require__(/*! elementor-app/event-track/apps-event-tracking */ "../app/assets/js/event-track/apps-event-tracking.js");
 var _upgradeVersionBanner = __webpack_require__(/*! ./upgrade-version-banner */ "../app/modules/import-export-customization/assets/js/shared/components/upgrade-version-banner.js");
+var _analyticsTransformer = __webpack_require__(/*! ../utils/analytics-transformer */ "../app/modules/import-export-customization/assets/js/shared/utils/analytics-transformer.js");
 function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function _interopRequireWildcard(e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, default: e }; if (null === e || "object" != _typeof(e) && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (var _t in e) "default" !== _t && {}.hasOwnProperty.call(e, _t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t)) && (i.get || i.set) ? o(f, _t, i) : f[_t] = e[_t]); return f; })(e, t); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { (0, _defineProperty2.default)(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+var transformAnalyticsData = function transformAnalyticsData(payload) {
+  var transformed = {};
+  for (var _i = 0, _Object$entries = Object.entries(payload); _i < _Object$entries.length; _i++) {
+    var _Object$entries$_i = (0, _slicedToArray2.default)(_Object$entries[_i], 2),
+      key = _Object$entries$_i[0],
+      value = _Object$entries$_i[1];
+    transformed[key] = (0, _analyticsTransformer.transformValueForAnalytics)(key, value, []);
+  }
+  return transformed;
+};
 var REQUIRED_PLUGINS = ['elementor/elementor'];
 function KitPluginsCustomizationDialog(_ref) {
-  var _data$uploadedData2, _data$analytics, _data$includes, _data$customization2;
+  var _data$uploadedData2, _data$includes, _data$customization2;
   var open = _ref.open,
     handleClose = _ref.handleClose,
     handleSaveChanges = _ref.handleSaveChanges,
@@ -9106,7 +9125,6 @@ function KitPluginsCustomizationDialog(_ref) {
     _useState2 = (0, _slicedToArray2.default)(_useState, 2),
     plugins = _useState2[0],
     setPlugins = _useState2[1];
-  var unselectedValues = (0, _react.useRef)(((_data$analytics = data.analytics) === null || _data$analytics === void 0 || (_data$analytics = _data$analytics.customization) === null || _data$analytics === void 0 ? void 0 : _data$analytics.plugins) || []);
   var initialState = (data === null || data === void 0 || (_data$includes = data.includes) === null || _data$includes === void 0 ? void 0 : _data$includes.includes('plugins')) || false;
   (0, _react.useEffect)(function () {
     var _data$customization;
@@ -9146,18 +9164,15 @@ function KitPluginsCustomizationDialog(_ref) {
       return plugins[pluginKey];
     }) && !isAllSelected;
   }, [nonRequiredPlugins, plugins, isAllSelected]);
-  var handleToggleChange = (0, _react.useCallback)(function (settingKey, isChecked) {
+  var handleToggleChange = (0, _react.useCallback)(function (settingKey) {
     if (isRequiredPlugin(settingKey)) {
       return;
     }
-    unselectedValues.current = isChecked ? unselectedValues.current.filter(function (val) {
-      return settingKey !== val;
-    }) : [].concat((0, _toConsumableArray2.default)(unselectedValues.current), [settingKey]);
     setPlugins(function (prev) {
       return _objectSpread(_objectSpread({}, prev), {}, (0, _defineProperty2.default)({}, settingKey, !prev[settingKey]));
     });
   }, [isRequiredPlugin]);
-  var handleSelectAll = (0, _react.useCallback)(function (e, isChecked) {
+  var handleSelectAll = (0, _react.useCallback)(function () {
     var allNonRequiredSelected = nonRequiredPlugins.every(function (pluginKey) {
       return plugins[pluginKey];
     });
@@ -9170,9 +9185,6 @@ function KitPluginsCustomizationDialog(_ref) {
         newState[pluginKey] = true;
       }
     });
-    unselectedValues.current = isChecked ? unselectedValues.current.filter(function (value) {
-      return !Object.keys(newState).includes(value);
-    }) : ['plugins'].concat((0, _toConsumableArray2.default)(nonRequiredPlugins));
     setPlugins(newState);
   }, [plugins, nonRequiredPlugins]);
   var getPluginsSelection = (0, _react.useCallback)(function () {
@@ -9351,7 +9363,8 @@ function KitPluginsCustomizationDialog(_ref) {
     onClick: function onClick() {
       var pluginsSelection = getPluginsSelection();
       var hasEnabledCustomization = Object.values(pluginsSelection).some(Boolean);
-      handleSaveChanges('plugins', pluginsSelection, hasEnabledCustomization, unselectedValues.current);
+      var transformedAnalytics = transformAnalyticsData(pluginsSelection);
+      handleSaveChanges('plugins', pluginsSelection, hasEnabledCustomization, transformedAnalytics);
       handleClose();
     },
     variant: "contained",
@@ -9386,7 +9399,6 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports.KitSettingsCustomizationDialog = KitSettingsCustomizationDialog;
 var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "react"));
-var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "../node_modules/@babel/runtime/helpers/toConsumableArray.js"));
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "../node_modules/@babel/runtime/helpers/defineProperty.js"));
 var _slicedToArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "../node_modules/@babel/runtime/helpers/slicedToArray.js"));
 var _ui = __webpack_require__(/*! @elementor/ui */ "@elementor/ui");
@@ -9397,9 +9409,20 @@ var _kitCustomizationDialog = __webpack_require__(/*! ./kit-customization-dialog
 var _appsEventTracking = __webpack_require__(/*! elementor-app/event-track/apps-event-tracking */ "../app/assets/js/event-track/apps-event-tracking.js");
 var _useContextDetection2 = _interopRequireDefault(__webpack_require__(/*! ../hooks/use-context-detection */ "../app/modules/import-export-customization/assets/js/shared/hooks/use-context-detection.js"));
 var _upgradeVersionBanner = __webpack_require__(/*! ./upgrade-version-banner */ "../app/modules/import-export-customization/assets/js/shared/components/upgrade-version-banner.js");
+var _analyticsTransformer = __webpack_require__(/*! ../utils/analytics-transformer */ "../app/modules/import-export-customization/assets/js/shared/utils/analytics-transformer.js");
 function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function _interopRequireWildcard(e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, default: e }; if (null === e || "object" != _typeof(e) && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (var _t in e) "default" !== _t && {}.hasOwnProperty.call(e, _t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t)) && (i.get || i.set) ? o(f, _t, i) : f[_t] = e[_t]); return f; })(e, t); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { (0, _defineProperty2.default)(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+var transformAnalyticsData = function transformAnalyticsData(payload) {
+  var transformed = {};
+  for (var _i = 0, _Object$entries = Object.entries(payload); _i < _Object$entries.length; _i++) {
+    var _Object$entries$_i = (0, _slicedToArray2.default)(_Object$entries[_i], 2),
+      key = _Object$entries$_i[0],
+      value = _Object$entries$_i[1];
+    transformed[key] = (0, _analyticsTransformer.transformValueForAnalytics)(key, value, []);
+  }
+  return transformed;
+};
 function getInitialState(contextData, isImport) {
   var _data$uploadedData;
   var data = contextData.data;
@@ -9418,7 +9441,7 @@ function isExported(contextData) {
   return contextData === null || contextData === void 0 || (_contextData$data2 = contextData.data) === null || _contextData$data2 === void 0 || (_contextData$data2 = _contextData$data2.uploadedData) === null || _contextData$data2 === void 0 || (_contextData$data2 = _contextData$data2.manifest) === null || _contextData$data2 === void 0 || (_contextData$data2 = _contextData$data2['site-settings']) === null || _contextData$data2 === void 0 ? void 0 : _contextData$data2.theme;
 }
 function KitSettingsCustomizationDialog(_ref) {
-  var _data$analytics, _contextData$data3;
+  var _contextData$data3;
   var open = _ref.open,
     handleClose = _ref.handleClose,
     _handleSaveChanges = _ref.handleSaveChanges,
@@ -9427,7 +9450,6 @@ function KitSettingsCustomizationDialog(_ref) {
     isImport = _useContextDetection.isImport,
     contextData = _useContextDetection.contextData;
   var initialState = getInitialState(contextData, isImport);
-  var unselectedValues = (0, _react.useRef)(((_data$analytics = data.analytics) === null || _data$analytics === void 0 || (_data$analytics = _data$analytics.customization) === null || _data$analytics === void 0 ? void 0 : _data$analytics.settings) || []);
   var _useState = (0, _react.useState)(function () {
       if (data.customization.settings) {
         return _objectSpread({}, data.customization.settings);
@@ -9455,10 +9477,7 @@ function KitSettingsCustomizationDialog(_ref) {
       _appsEventTracking.AppsEventTracking.sendPageViewsWebsiteTemplates(elementorCommon.eventsManager.config.secondaryLocations.kitLibrary.kitExportCustomizationEdit);
     }
   }, [open]);
-  var handleToggleChange = function handleToggleChange(settingKey, isChecked) {
-    unselectedValues.current = isChecked ? unselectedValues.current.filter(function (val) {
-      return settingKey !== val;
-    }) : [].concat((0, _toConsumableArray2.default)(unselectedValues.current), [settingKey]);
+  var handleToggleChange = function handleToggleChange(settingKey) {
     setSettings(function (prev) {
       return _objectSpread(_objectSpread({}, prev), {}, (0, _defineProperty2.default)({}, settingKey, !prev[settingKey]));
     });
@@ -9468,7 +9487,8 @@ function KitSettingsCustomizationDialog(_ref) {
     title: (0, _i18n.__)('Edit settings & configurations', 'elementor'),
     handleClose: handleClose,
     handleSaveChanges: function handleSaveChanges() {
-      return _handleSaveChanges('settings', settings, true, unselectedValues.current);
+      var transformedAnalytics = transformAnalyticsData(settings);
+      _handleSaveChanges('settings', settings, true, transformedAnalytics);
     }
   }, /*#__PURE__*/_react.default.createElement(_ui.Stack, {
     gap: 2
@@ -9934,8 +9954,11 @@ var _ui = __webpack_require__(/*! @elementor/ui */ "@elementor/ui");
 var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "../node_modules/prop-types/index.js"));
 function SummarySection(_ref) {
   var title = _ref.title,
-    subTitle = _ref.subTitle;
-  return /*#__PURE__*/_react.default.createElement(_ui.Box, null, /*#__PURE__*/_react.default.createElement(_ui.Stack, {
+    subTitle = _ref.subTitle,
+    sectionKey = _ref.sectionKey;
+  return /*#__PURE__*/_react.default.createElement(_ui.Box, {
+    "data-testid": "summary_section_".concat(sectionKey)
+  }, /*#__PURE__*/_react.default.createElement(_ui.Stack, {
     direction: "row",
     alignItems: "center",
     spacing: 1
@@ -9944,12 +9967,14 @@ function SummarySection(_ref) {
     color: "text.primary"
   }, title)), /*#__PURE__*/_react.default.createElement(_ui.Typography, {
     variant: "body2",
-    color: "text.tertiary"
+    color: "text.tertiary",
+    "data-testid": "summary_section_".concat(sectionKey, "_subtitle")
   }, subTitle));
 }
 SummarySection.propTypes = {
   title: _propTypes.default.string.isRequired,
-  subTitle: _propTypes.default.string.isRequired
+  subTitle: _propTypes.default.string.isRequired,
+  sectionKey: _propTypes.default.string.isRequired
 };
 
 /***/ }),
@@ -10389,6 +10414,67 @@ var kitContentData = [{
   required: true
 }];
 var _default = exports["default"] = kitContentData;
+
+/***/ }),
+
+/***/ "../app/modules/import-export-customization/assets/js/shared/utils/analytics-transformer.js":
+/*!**************************************************************************************************!*\
+  !*** ../app/modules/import-export-customization/assets/js/shared/utils/analytics-transformer.js ***!
+  \**************************************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "../node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.transformValueForAnalytics = exports.getTotalAvailableCount = exports.ANALYTICS_TRANSFORM_RULES = void 0;
+var _typeof2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/typeof */ "../node_modules/@babel/runtime/helpers/typeof.js"));
+var ANALYTICS_TRANSFORM_RULES = exports.ANALYTICS_TRANSFORM_RULES = {
+  STRING: function STRING(value) {
+    return value;
+  },
+  BOOLEAN: function BOOLEAN(value) {
+    return value;
+  },
+  EMPTY_ARRAY: function EMPTY_ARRAY() {
+    return 'None';
+  },
+  FULL_ARRAY: function FULL_ARRAY() {
+    return 'All';
+  },
+  PARTIAL_ARRAY: function PARTIAL_ARRAY() {
+    return 'Partial';
+  }
+};
+var getTotalAvailableCount = exports.getTotalAvailableCount = function getTotalAvailableCount(key, optionsArray) {
+  var optionsMap = optionsArray.reduce(function (map, _ref) {
+    var optionKey = _ref.key,
+      options = _ref.options;
+    map[optionKey] = options.length;
+    return map;
+  }, {});
+  return optionsMap[key] || 0;
+};
+var transformValueForAnalytics = exports.transformValueForAnalytics = function transformValueForAnalytics(key, value, optionsArray) {
+  if ('string' === typeof value || 'boolean' === typeof value) {
+    return ANALYTICS_TRANSFORM_RULES[(0, _typeof2.default)(value).toUpperCase()](value);
+  }
+  if ('object' === (0, _typeof2.default)(value) && value !== null && !Array.isArray(value) && 'enabled' in value) {
+    return value.enabled;
+  }
+  if (Array.isArray(value)) {
+    if (0 === value.length) {
+      return ANALYTICS_TRANSFORM_RULES.EMPTY_ARRAY();
+    }
+    var totalAvailable = getTotalAvailableCount(key, optionsArray);
+    var isFullSelection = value.length === totalAvailable;
+    return isFullSelection ? ANALYTICS_TRANSFORM_RULES.FULL_ARRAY() : ANALYTICS_TRANSFORM_RULES.PARTIAL_ARRAY();
+  }
+  return value;
+};
 
 /***/ }),
 
@@ -17347,7 +17433,7 @@ var Onboarding = exports["default"] = /*#__PURE__*/(0, _createClass2.default)(fu
   _router.default.addRoute({
     path: '/onboarding/*',
     component: React.lazy(function () {
-      return __webpack_require__.e(/*! import() | onboarding */ "onboarding").then(__webpack_require__.bind(__webpack_require__, /*! ./app */ "../app/modules/onboarding/assets/js/app.js"));
+      return Promise.all(/*! import() | onboarding */[__webpack_require__.e("app_modules_onboarding_assets_js_utils_modules_post-onboarding-tracker_js"), __webpack_require__.e("onboarding")]).then(__webpack_require__.bind(__webpack_require__, /*! ./app */ "../app/modules/onboarding/assets/js/app.js"));
     })
   });
 });
@@ -28051,7 +28137,8 @@ module.exports = ReactDOM;
 /******/ 			// return url for filenames not based on template
 /******/ 			if (chunkId === "vendors-node_modules_react-query_devtools_index_js") return "bb8b6cce5ae5b36077e0.bundle.js";
 /******/ 			if (chunkId === "kit-library") return "" + chunkId + ".ed7fc5d9656556af9353.bundle.js";
-/******/ 			if (chunkId === "onboarding") return "" + chunkId + ".b3b92ba51250858e05aa.bundle.js";
+/******/ 			if (chunkId === "app_modules_onboarding_assets_js_utils_modules_post-onboarding-tracker_js") return "cb72c088a03a8e0c21b1.bundle.js";
+/******/ 			if (chunkId === "onboarding") return "" + chunkId + ".50bce36b17131b8d21b7.bundle.js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

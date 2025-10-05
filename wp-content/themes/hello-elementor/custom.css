@@ -1,0 +1,305 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap');
+
+/* يطبق فقط داخل الهيرو */
+.hero-section h1,
+.hero-section h2,
+.hero-section h3, 
+.hero-section .elementor-heading-title {
+    font-family: 'Cairo', sans-serif !important;
+    font-weight: 700 !important; /* Bold */
+    text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.4);
+}
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 60px 20px; /* زيادة مساحة العلوية والسفلية */
+    text-align: center;
+  }
+
+  .hero-section h1 {
+    font-size: 2rem; /* تكبير العنوان */
+    margin-bottom: 10px;
+  }
+
+  .hero-section p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  .hero-section .elementor-button {
+    font-size: 1rem;
+    padding: 12px 28px; /* زر أكبر شوي */
+    border-radius: 30px; /* شكل ناعم */
+  }
+
+.hero-welcome {
+  background: linear-gradient(135deg, #ffd87e, #efc46d);
+  border-radius: 12px;
+  padding: 20px 24px;
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto 30px auto;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.hero-welcome h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #222;
+  text-shadow: none;
+}
+
+.hero-welcome p {
+  font-size: 16px;
+  color: #666;
+  margin: 0;
+}
+
+
+
+
+.review-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 10px auto;
+}
+
+.review-card img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.2);
+}
+
+.google-map-btn {
+  background-color: #34A853; /* أخضر جوجل */
+  color: #fff !important;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.google-map-btn:hover {
+  background-color: #2c8e45; /* أخضر أغمق عند الهوفر */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .footer-section {
+    text-align: center !important;
+  }
+  .footer-section p, 
+  .footer-section a {
+    font-size: 14px !important;
+  }
+  .footer-section .social-icons i {
+    font-size: 20px !important;
+    margin: 0 8px !important;
+    color: #fff !important; /* أيقونات بيضاء */
+  }
+  .footer-section .copyright {
+    font-size: 12px !important;
+    color: #aaa !important;
+    margin-top: 15px !important;
+  }
+}
+.footer-section a {
+  color: #ffffff !important;
+}
+.footer-section a:hover {
+  color: #f5b301 !important;
+}
+
+	.Menu-Text {
+		
+  color: #ffffff !important;       /* اللون أبيض */
+  font-size: 40px !important;      /* حجم مناسب */
+  font-weight: 700 !important;     /* Bold */
+  text-align: center !important;   /* بالوسط */
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.9); /* ظل غامق */
+  padding: 10px 20px;              /* مسافة داخلية */
+  border-radius: 8px;              /* زوايا ناعمة */
+  display: inline-block;           /* يخلي الخلفية بس حول النص */
+  background: rgba(0,0,0,0.2);     /* خلفية شفافة */
+
+
+	}
+
+.Menu-Tabs {
+	box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important
+}
+.Menu-Tabs:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important;
+    transition: all 0.3s ease !important;
+}
+/* يقلل الفراغ بين الكروت */
+.Menu-Tabs {
+  gap: 15px !important;   /* يتحكم بالمسافة بين الأعمدة والصفوف */
+}
+/* الكونتينر حق الأزرار */
+.menu-buttons .e-n-tabs-heading {
+  margin: 0 !important;
+  padding: 12px !important;
+  display: flex;
+  gap: 10px; /* مسافة بين الأزرار */
+}
+
+/* الزر العادي */
+.menu-buttons .e-n-tab-title {
+  background: #f5f5f5;
+  color: #333;
+  padding: 10px 20px !important;
+  border-radius: 6px !important;
+  font-weight: 600 !important;
+  transition: 0.3s !important;
+  cursor: pointer;
+  border: none;
+}
+
+/* عند hover */
+.menu-buttons .e-n-tab-title:hover {
+  background: #aa6b6d !important;
+  color: #fff !important;
+}
+
+.menu-buttons .e-n-tab-title[aria-selected="true"] {
+  background: #7b1e23 !important;
+  color: #fff !important;
+  font-weight: bold !important;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+.menu-buttons .e-n-tab-title {
+  transition: all 0.25s ease-in-out !important;
+}
+/* نص تعريفي قبل المنيو */
+.menu-intro {
+  font-family: 'Cairo', sans-serif;   /* أو Poppins */
+  font-size: 20px;
+  font-weight: 400;
+  color: #333;                        /* لون النص */
+  text-align: center;
+  line-height: 1.6;
+  margin: 20px auto 30px auto;        /* فراغات فوق وتحت */
+  max-width: 700px;                   /* يخلي النص ما يتمدد */
+}
+
+/* الخط (divider) تحت النص */
+.menu-intro:after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  background-color: #f5b301;          /* ذهبي فاتح */
+  margin: 12px auto 0 auto;           /* وسط */
+  border-radius: 2px;
+}
+
+
+/* الكونتينر حق الأزرار */
+.menu-drinks .e-n-tabs-heading {
+  margin: 0 !important;
+  padding: 12px !important;
+  display: flex;
+}
+
+/* الزر العادي */
+.menu-drinks .e-n-tab-title {
+
+  padding: 10px 20px !important;
+  border-radius: 6px !important;
+  font-weight: 600 !important;
+  transition: 0.3s !important;
+  cursor: pointer;
+  border: none;
+}
+
+/* عند hover */
+.menu-drinks .e-n-tab-title:hover {
+  background: #88cec6 !important;
+  color: #fff !important;
+}
+
+.menu-drinks .e-n-tab-title[aria-selected="true"] {
+  background: #009688 !important;
+  color: #fff !important;
+  font-weight: bold !important;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+.menu-drinks .e-n-tab-title {
+  transition: all 0.25s ease-in-out !important;
+}
+
+#menu-drinks-hot:hover { 
+	background: #c9a08f !important;
+		color: #fff; !important
+	}
+#menu-drinks-hot.e-n-tab-title[aria-selected="true"] 
+  background: #B47153 !important;
+  color: #fff !important;
+}
+
+
+/* العنوان الرئيسي لكل سيكشن */
+.Drinks-title {
+  font-size: 32px !important;        /* حجم واضح وكبير */
+  font-weight: 700 !important;       /* عريض */
+  text-align: center !important;     
+  letter-spacing: 0.5px !important;  /* تباعد خفيف بين الحروف */
+  color: #222 !important;            /* غامق لكن مو أسود صريح */
+  font-family: 'Poppins', sans-serif !important; /* خط عصري (غير إلزامي) */
+
+  font-family: 'Cairo', sans-serif !important;   /* أو Poppins */
+  color: #333 !important;                        /* لون النص */
+  line-height: 1.6 !important;
+
+}
+
+/* زر واتساب */
+.btn-whatsapp .elementor-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+   10px;
+
+  background: #25D366 !important;
+  color: #fff !important;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: 50px;
+  border: none;
+  box-shadow: 0 6px 14px rgba(37, 211, 102, 0.4);
+  transition: all 0.2s ease;
+}
+
+.btn-whatsapp .elementor-button:hover {
+  background: #1ebe5d !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(37, 211, 102, 0.55);
+}
+.order-cta-block{ margin: 34px auto 46px; text-align:center; }
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+
