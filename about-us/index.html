@@ -35,7 +35,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
 :root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
 </style>
 <link rel="stylesheet" id="hfe-style-css" href="https://lively-genie-a99847.netlify.app/wp-content/plugins/header-footer-elementor/assets/css/header-footer-elementor.css?ver=2.5.2" media="all">
-<link rel="stylesheet" id="elementor-frontend-css" href="https://lively-genie-a99847.netlify.app/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.32.3" media="all">
+<link rel="stylesheet" id="elementor-frontend-css" href="https://lively-genie-a99847.netlify.app/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.32.4" media="all">
 <style id="elementor-frontend-inline-css">
 .elementor-kit-7{--e-global-typography-primary-font-family:"Roboto";--e-global-typography-primary-font-weight:600;--e-global-typography-secondary-font-family:"Roboto Slab";--e-global-typography-secondary-font-weight:400;--e-global-typography-text-font-family:"Roboto";--e-global-typography-text-font-weight:400;--e-global-typography-accent-font-family:"Roboto";--e-global-typography-accent-font-weight:500;background-color:transparent;background-image:linear-gradient(180deg, #FEDF89 19%, #FFFFFF 100%);}.elementor-section.elementor-section-boxed > .elementor-container{max-width:1140px;}.e-con{--container-max-width:1140px;}.elementor-widget:not(:last-child){margin-block-end:20px;}.elementor-element{--widgets-spacing:20px 20px;--widgets-spacing-row:20px;--widgets-spacing-column:20px;}{}h1.entry-title{display:var(--page-title-display);}.site-header .site-branding{flex-direction:column;align-items:stretch;}.site-header{padding-inline-end:0px;padding-inline-start:0px;}.site-footer .site-branding{flex-direction:column;align-items:stretch;}@media(max-width:1024px){.elementor-section.elementor-section-boxed > .elementor-container{max-width:1024px;}.e-con{--container-max-width:1024px;}}@media(max-width:767px){.elementor-section.elementor-section-boxed > .elementor-container{max-width:767px;}.e-con{--container-max-width:767px;}}
 .elementor-134 .elementor-element.elementor-element-45eb35d{--display:flex;}
@@ -118,17 +118,6 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
 /* =========================
    Hero
    ========================= */
-.elementor .hero-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 20px;
-  position: relative;
-}
 
 /* بطاقة ترحيب بسيطة (لو مستخدمة) */
 .elementor .hero-welcome {
@@ -141,6 +130,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
   box-shadow: 0 10px 20px rgba(0,0,0,0.08);
 }
 .elementor .hero-welcome h2 {
+	 font-family: 'Cairo', sans-serif !important;
   font-size: 26px;
   font-weight: 700;
   margin-bottom: 8px;
@@ -152,7 +142,14 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
   color: #666;
   margin: 0;
 }
-
+	
+	.Best-Dishes h2 {
+	 font-family: 'Cairo', sans-serif !important;
+  font-weight: 500 !important; /* Bold */
+  text-shadow: 4px 4px 7px rgba(0, 0, 0, 0.4);align-content;
+		margin-bottom: 15px
+		
+	}
 /* =========================
    Menu section title
    ========================= */
@@ -164,7 +161,6 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
   text-shadow: 2px 2px 8px rgba(0,0,0,0.9);
   padding: 10px 20px;
   border-radius: 8px;
-  display: inline-block;
   background: rgba(0,0,0,0.2);
 }
 
@@ -183,14 +179,15 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
    Tabs (قائمة الأزرار أعلى المنيو)
    ========================= */
 .elementor .Menu-Tabs {
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
-  gap: 15px !important; /* تقليل الفراغ بين الكروت */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important;
+}
 }
 
 .elementor .menu-buttons .e-n-tabs-heading {
   margin: 0 !important;
   padding: 12px !important;
   display: flex;
+
   gap: 10px;
 }
 
@@ -216,6 +213,10 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
   color: #fff !important;
   font-weight: 700 !important;
   box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+		  border: none !important;
+  transition: all 0.5s ease !important;
+	  transform: translateY(-2px) !important;
+
 }
 
 /* =========================
@@ -280,7 +281,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
   border-radius: 8px !important;
   text-transform: uppercase !important;
   letter-spacing: 0.5px !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
   transition: all 0.3s ease !important;
   border: none !important;
 }
@@ -297,17 +298,17 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
    WhatsApp CTA
    ========================= */
 .elementor .btn-whatsapp .elementor-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   background: #25D366 !important;
   color: #fff !important;
-  font-size: 18px;
-  font-weight: 700;
-  padding: 14px 32px;
-  border-radius: 50px;
-  border: none;
-  box-shadow: 0 6px 14px rgba(37, 211, 102, 0.4);
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  padding: 14px 32px !important;
+  border-radius: 50px !important;
+  border: none !important;
+  box-shadow: 0 6px 14px rgba(37, 211, 102, 0.4) !important;
   transition: all 0.2s ease;
 }
 .elementor .btn-whatsapp .elementor-button:hover {
@@ -329,28 +330,108 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
 /* =========================
    Responsive (Mobile)
    ========================= */
-@media (max-width: 768px) {
-  .elementor .hero-section { padding: 60px 20px; text-align: center; }
+@media (max-width: 600px) {
+  .hero-section { padding: 60px 20px; text-align: center; 
+	margin-bottom: 30px 
+	}
   .elementor .hero-section h1 { font-size: 2rem; margin-bottom: 10px; }
   .elementor .hero-section p  { font-size: 1rem; margin-bottom: 20px; }
-  .elementor .hero-section .elementor-button {
+	.elementor .hero-section .elementor-button {
     font-size: 1rem; padding: 12px 28px; border-radius: 30px;
   }
+	.elementor .hero-welcome {
+  background: linear-gradient(135deg, #ffd87e, #efc46d);
+  border-radius: 12px;
+  padding: 20px 24px;
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto 30px auto;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+.elementor .hero-welcome h2 {
+	 font-family: 'Cairo', sans-serif !important;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 1px;
+  color: #222;
+  text-shadow: none;
+}
+.elementor .hero-welcome p {
+  font-size: 16px;
+  color: #666;
+  margin: 0;
+}
+	.Best-Dishes h2 {
+	 font-family: 'Cairo', sans-serif !important;
+  font-weight: 500 !important; /* Bold */
+  text-shadow: 4px 4px 7px rgba(0, 0, 0, 0.4);align-content;
+		margin-bottom: 15px;
+		margin-top: 30px
+			
+		
+	}
+	
 
   .elementor .footer-section { text-align: center !important; }
+	
+	
   .elementor .footer-section p,
   .elementor .footer-section a { font-size: 14px !important; }
+	
+	
   .elementor .footer-section .social-icons i {
     font-size: 20px !important;
     margin: 0 8px !important;
     color: #fff !important;
   }
+	
+	
   .elementor .footer-section .copyright {
     font-size: 12px !important;
     color: #aaa !important;
     margin-top: 15px !important;
   }
+	
+  /* ✅ يطبق على تبويبات الأكل والمشروبات معًا */
+  .elementor .menu-buttons .e-n-tabs-heading,
+  .elementor .menu-drinks .e-n-tabs-heading {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 10px !important;
+    justify-content: center !important;
+  }
+
+  /* ✅ ضبط شكل الأزرار */
+  .elementor .menu-buttons .e-n-tab-title,
+  .elementor .menu-drinks .e-n-tab-title {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 12px 0 !important;
+    border-radius: 6px !important;
+  }
+
+  /* ✅ توازن المسافات بين العناوين والتبويبات */
+  .elementor .menu-buttons,
+  .elementor .menu-drinks {
+    margin-top: 10px !important;
+  }
+	html, body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+	
 }
+
+}
+/* يمنع التمدد في كل الأقسام */
+
+
+
+.elementor-section,
+.elementor-container {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
 		</style>
 		</head>
 
@@ -527,16 +608,16 @@ V&auml;xj&ouml;, Sweden.
 <script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"\/*"},{"not":{"href_matches":["\/wp-*.php","\/wp-admin\/*","\/wp-content\/uploads\/*","\/wp-content\/*","\/wp-content\/plugins\/*","\/wp-content\/themes\/hello-elementor\/*","\/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
-<link rel="stylesheet" id="widget-heading-css" href="https://lively-genie-a99847.netlify.app/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=3.32.3" media="all">
-<link rel="stylesheet" id="widget-social-icons-css" href="https://lively-genie-a99847.netlify.app/wp-content/plugins/elementor/assets/css/widget-social-icons.min.css?ver=3.32.3" media="all">
-<link rel="stylesheet" id="e-apple-webkit-css" href="https://lively-genie-a99847.netlify.app/wp-content/plugins/elementor/assets/css/conditionals/apple-webkit.min.css?ver=3.32.3" media="all">
-<script src="https://lively-genie-a99847.netlify.app/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.32.3" id="elementor-webpack-runtime-js"></script>
-<script src="https://lively-genie-a99847.netlify.app/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.32.3" id="elementor-frontend-modules-js"></script>
+<link rel="stylesheet" id="widget-heading-css" href="https://lively-genie-a99847.netlify.app/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=3.32.4" media="all">
+<link rel="stylesheet" id="widget-social-icons-css" href="https://lively-genie-a99847.netlify.app/wp-content/plugins/elementor/assets/css/widget-social-icons.min.css?ver=3.32.4" media="all">
+<link rel="stylesheet" id="e-apple-webkit-css" href="https://lively-genie-a99847.netlify.app/wp-content/plugins/elementor/assets/css/conditionals/apple-webkit.min.css?ver=3.32.4" media="all">
+<script src="https://lively-genie-a99847.netlify.app/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.32.4" id="elementor-webpack-runtime-js"></script>
+<script src="https://lively-genie-a99847.netlify.app/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.32.4" id="elementor-frontend-modules-js"></script>
 <script src="https://lively-genie-a99847.netlify.app/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js"></script>
 <script id="elementor-frontend-js-before">
-var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"3.32.3","is_static":false,"experimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"hello-theme-header-footer":true,"nested-elements":true,"home_screen":true,"global_classes_should_enforce_capabilities":true,"e_variables":true,"cloud-library":true,"e_opt_in_v4_page":true,"import-export-customization":true},"urls":{"assets":"https:\/\/lively-genie-a99847.netlify.app\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/lively-genie-a99847.netlify.app\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/lively-genie-a99847.netlify.app\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"ec7671fc70"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"body_background_background":"gradient","active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","hello_header_logo_type":"title","hello_header_menu_layout":"horizontal","hello_footer_logo_type":"logo"},"post":{"id":134,"title":"About%20us","excerpt":"","featuredImage":false}};
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"3.32.4","is_static":false,"experimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"hello-theme-header-footer":true,"nested-elements":true,"home_screen":true,"global_classes_should_enforce_capabilities":true,"e_variables":true,"cloud-library":true,"e_opt_in_v4_page":true,"import-export-customization":true},"urls":{"assets":"https:\/\/lively-genie-a99847.netlify.app\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/lively-genie-a99847.netlify.app\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/lively-genie-a99847.netlify.app\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"3140c7e335"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"body_background_background":"gradient","active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","hello_header_logo_type":"title","hello_header_menu_layout":"horizontal","hello_footer_logo_type":"logo"},"post":{"id":134,"title":"About%20us","excerpt":"","featuredImage":false}};
 </script>
-<script src="https://lively-genie-a99847.netlify.app/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.32.3" id="elementor-frontend-js"></script>
+<script src="https://lively-genie-a99847.netlify.app/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.32.4" id="elementor-frontend-js"></script>
 <script src="https://lively-genie-a99847.netlify.app/wp-content/themes/hello-elementor/assets/js/hello-frontend.js?ver=3.4.4" id="hello-theme-frontend-js"></script>
 <script src="https://lively-genie-a99847.netlify.app/wp-content/plugins/header-footer-elementor/inc/js/frontend.js?ver=2.5.2" id="hfe-frontend-js-js"></script>
 </body>
