@@ -175,11 +175,6 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
 /* =========================
    Tabs (قائمة الأزرار أعلى المنيو)
    ========================= */
-.elementor .Menu-Tabs {
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important;
-}
-}
-
 .elementor .menu-buttons .e-n-tabs-heading {
   margin: 0 !important;
   padding: 12px !important;
@@ -216,6 +211,13 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
 
 }
 
+
+
+
+
+
+
+
 /* =========================
    Drinks tabs (لو عندك تبويبات ثانية للمشروبات)
    ========================= */
@@ -223,8 +225,10 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
   margin: 0 !important;
   padding: 12px !important;
   display: flex;
+    gap: 10px;
 }
 .elementor .menu-drinks .e-n-tab-title {
+	COLOR: #333;
   padding: 10px 20px !important;
   border-radius: 6px !important;
   font-weight: 600 !important;
@@ -241,6 +245,9 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
   color: #fff !important;
   font-weight: 700 !important;
   box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+   border: none !important;
+  transition: all 0.5s ease !important;
+	  transform: translateY(-2px) !important;
 }
 
 /* تبويب مخصص بالآي دي */
@@ -253,18 +260,9 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
   color: #fff !important;
 }
 
-/* =========================
-   Review cards (الآراء)
-   ========================= */
-.elementor .review-card img {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  display: block;
-  margin: 10px auto;
-}
+
+
+
 
 /* =========================
    Google Map button
@@ -390,25 +388,47 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
   }
 	
   /* ✅ يطبق على تبويبات الأكل والمشروبات معًا */
-  .elementor .menu-buttons .e-n-tabs-heading,
-  .elementor .menu-drinks .e-n-tabs-heading {
+  .elementor .menu-buttons .e-n-tabs-heading
+   {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
-    gap: 10px !important;
     justify-content: center !important;
   }
 
+ .elementor .menu-drinks .e-n-tabs-heading {
+	   display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    justify-content: center !important;
+  }
+
+
+
+
+
   /* ✅ ضبط شكل الأزرار */
-  .elementor .menu-buttons .e-n-tab-title,
-  .elementor .menu-drinks .e-n-tab-title {
+  .elementor .menu-buttons .e-n-tab-title {
     width: 100% !important;
     text-align: center !important;
     padding: 12px 0 !important;
     border-radius: 6px !important;
   }
+  
+  .elementor .menu-drinks .e-n-tab-title {
+	   width: 100% !important;
+    text-align: center !important;
+    padding: 12px 0 !important;
+    border-radius: 6px !important;
+  }
+  
+  
+  
 
   /* ✅ توازن المسافات بين العناوين والتبويبات */
-  .elementor .menu-buttons,
+  .elementor .menu-buttons {
+    margin-top: 10px !important;
+  }
+  
+  
   .elementor .menu-drinks {
     margin-top: 10px !important;
   }
@@ -598,7 +618,7 @@ V&auml;xj&ouml;, Sweden.
 <script src="https://lively-genie-a99847.netlify.app/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.32.4" id="elementor-frontend-modules-js"></script>
 <script src="https://lively-genie-a99847.netlify.app/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js"></script>
 <script id="elementor-frontend-js-before">
-var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"3.32.4","is_static":false,"experimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"hello-theme-header-footer":true,"nested-elements":true,"home_screen":true,"global_classes_should_enforce_capabilities":true,"e_variables":true,"cloud-library":true,"e_opt_in_v4_page":true,"import-export-customization":true},"urls":{"assets":"https:\/\/lively-genie-a99847.netlify.app\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/lively-genie-a99847.netlify.app\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/lively-genie-a99847.netlify.app\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"3140c7e335"},"swiperClass":"swiper","settings":{"editorPreferences":[]},"kit":{"body_background_background":"gradient","active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","hello_header_logo_type":"title","hello_header_menu_layout":"horizontal","hello_footer_logo_type":"logo"},"post":{"id":0,"title":"muayad266","excerpt":""}};
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"3.32.4","is_static":false,"experimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"hello-theme-header-footer":true,"nested-elements":true,"home_screen":true,"global_classes_should_enforce_capabilities":true,"e_variables":true,"cloud-library":true,"e_opt_in_v4_page":true,"import-export-customization":true},"urls":{"assets":"https:\/\/lively-genie-a99847.netlify.app\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/lively-genie-a99847.netlify.app\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/lively-genie-a99847.netlify.app\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"08eee18746"},"swiperClass":"swiper","settings":{"editorPreferences":[]},"kit":{"body_background_background":"gradient","active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","hello_header_logo_type":"title","hello_header_menu_layout":"horizontal","hello_footer_logo_type":"logo"},"post":{"id":0,"title":"muayad266","excerpt":""}};
 </script>
 <script src="https://lively-genie-a99847.netlify.app/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.32.4" id="elementor-frontend-js"></script>
 <script src="https://lively-genie-a99847.netlify.app/wp-content/plugins/header-footer-elementor/inc/js/frontend.js?ver=2.5.2" id="hfe-frontend-js-js"></script>
